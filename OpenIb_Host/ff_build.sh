@@ -57,7 +57,13 @@ export PRODUCT=${PRODUCT:-OPENIB_FF}
 # for FF the kernel rev is not important.  We simply use the kernel rev
 # of the running kernel.  While BUILD_TARGET_OS_VERSION is needed by Makerules
 # it will have no impact on what is actually built for FF
-export BUILD_TARGET_OS_VERSION=${BUILD_TARGET_OS_VERSION:-`uname -r`}
+export BUILD_TARGET_OS_VERSION=`uname -r`
+export BUILD_PLATFORM_OS_VENDOR="SuSE"
+export BUILD_TARGET_OS_VENDOR="SuSE"
+export BUILD_PLATFORM_OS_VENDOR_VERSION="OPENSUSE_BUILD_SYSTEM"
+export BUILD_TARGET_OS_VENDOR=$BUILD_PLATFORM_OS_VENDOR
+export BUILD_TARGET_OS_VENDOR_VERSION=$BUILD_PLATFORM_OS_VENDOR_VERSION
+
 setver $BUILD_TARGET_OS_VENDOR $BUILD_TARGET_OS_VERSION
 export OPA_FEATURE_SET=opa10
 
@@ -70,6 +76,7 @@ shift
 set -x
 {
 	echo "Environment:"
+    export BUILD_TARGET_OS_VERSION="4.4"
 	env
 	echo "----------------------------------------------------------------------------"
 	echo

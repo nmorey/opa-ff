@@ -132,6 +132,7 @@ endif
 
 endif
 CKERNEL+=-include $(TL_DIR)/Makerules/LINUX/$(BUILD_TARGET).$(BUILD_TARGET_OS_VENDOR).$(BUILD_TARGET_OS_VERSION).h
+CKERNEL+= $(RPM_OPT_FLAGS)
 
 # Include directories for kernel
 KERNELDIR=/lib/modules/$(BUILD_TARGET_OS_VERSION)/build
